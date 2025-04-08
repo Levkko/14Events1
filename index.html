@@ -1,11 +1,124 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-</head>
-<body>
-    
-</body>
+    <link rel="stylesheet" href="messages.css" />
+  </head>
+  <body>
+    <!-- перше завдання -->
+    <div id="container">
+      <div class="pane">
+        <h3>Кінь</h3>
+        <p>
+          Кінь є одним із двох існуючих підвидів дикого коня (Equus ferus). Це
+          парнокопитний ссавець, що належить до таксономічної родини коневих
+          (Equidae). За останні 45-55 мільйонів років кінь еволюціонував із
+          маленької багатопалої істоти, Еогіппа (Eohippus), до великої однопалої
+          тварини сучасності.
+        </p>
+        <button class="remove-button">[x]</button>
+      </div>
+      <div class="pane">
+        <h3>Осел</h3>
+        <p>
+          Осел (Equus africanus asinus) є одомашненим представником сімейства
+          коней (Equidae). Диким предком осла є африканський дикий осел (E.
+          africanus). Осел використовувався як робоча тварина щонайменше 5000
+          років.
+        </p>
+        <button class="remove-button">[x]</button>
+      </div>
+      <div class="pane">
+        <h3>Кіт</h3>
+        <p>
+          Домашній кіт (лат. Felis catus) — невеликий, типово пухнастий, хижий
+          ссавець. Їх часто називають домашніми котами, якщо їх триваюсь вдома,
+          або просто котами, коли немає необхідності відрізняти їх від інших
+          котячих. Люди часто цінують котів за товариські стосунки і за їх
+          здатність полювати на шкідників.
+        </p>
+        <button class="remove-button">[x]</button>
+      </div>
+    </div>
+
+    <!-- друге завдання -->
+    <div id="container2">
+      <p>
+        <img
+          id="largeImg"
+          src="https://en.js.cx/gallery/img1-lg.jpg"
+          alt="Large image"
+        />
+      </p>
+
+      <ul id="thumbs">
+        <li>
+          <a href="https://en.js.cx/gallery/img2-lg.jpg" title="Зображення 2"
+            ><img src="https://en.js.cx/gallery/img2-thumb.jpg"
+          /></a>
+        </li>
+        <li>
+          <a href="https://en.js.cx/gallery/img3-lg.jpg" title="Зображення 3"
+            ><img src="https://en.js.cx/gallery/img3-thumb.jpg"
+          /></a>
+        </li>
+        <li>
+          <a href="https://en.js.cx/gallery/img4-lg.jpg" title="Зображення 4"
+            ><img src="https://en.js.cx/gallery/img4-thumb.jpg"
+          /></a>
+        </li>
+        <li>
+          <a href="https://en.js.cx/gallery/img5-lg.jpg" title="Зображення 5"
+            ><img src="https://en.js.cx/gallery/img5-thumb.jpg"
+          /></a>
+        </li>
+        <li>
+          <a href="https://en.js.cx/gallery/img6-lg.jpg" title="Зображення 6"
+            ><img src="https://en.js.cx/gallery/img6-thumb.jpg"
+          /></a>
+        </li>
+      </ul>
+    </div>
+    <script>
+      //перше завдання
+      var container = document.getElementById("container");
+
+      container.onclick = function (event) {
+        if (event.target.classList.contains("remove-button")) {
+          event.target.closest(".pane").remove();
+        }
+      };
+    </script>
+
+    <script>
+      //друге завдання
+      var thumbs = document.getElementById("thumbs");
+      var largeImg = document.getElementById("largeImg");
+
+      thumbs.onclick = function (event) {
+        if (event.target.closest("a")) {
+          event.preventDefault();
+          showThumbnail(
+            event.target.closest("a").href,
+            event.target.closest("a").title
+          );
+        } else {
+          return;
+        }
+      };
+
+      function showThumbnail(href, title) {
+        largeImg.src = href;
+        largeImg.alt = title;
+      }
+
+      //дуже довго сидів над цим завданням, таки зрозумів, 
+      //але використовував ChatGPT щоб зрозуміти. 
+      //Також дивився окремі уроки на ютубі по тому делегуванні,
+      //воно якесь складне мені. Але зрозумів.
+    </script> 
+  </body>
 </html>
+
